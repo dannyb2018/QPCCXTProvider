@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="/external/polyfill.7.4.4.js"></script> 
+    <script src="/external/babel.min.7.17.6.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ccxt@4.4.95/dist/ccxt.browser.min.js"></script> 
+  </head>
+
+  <body>
+    <script type="text/babel" data-presets="es2017" src="/extension_exchange.js"></script>
+    <script src="/external/axios.min.0.2.14.js"></script>
+    <script type="text/babel" data-presets="es2017">
+      (async () => 
+      {
+        try 
+        {
+          const exchange = new test_exchange();
+          const ticker = await exchange.fetchTicker('BTC/USDT');
+          console.log(ticker);    
+        } 
+        catch(err) 
+        {
+          console.error(err)
+        }
+      }
+      )()
+
+    </script>
+  </body>
+</html>
